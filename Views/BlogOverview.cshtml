@@ -1,0 +1,59 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<div id="divBlogOverview">
+	<section class="light blogarchive">
+		<div class="container-fluid">
+
+                @{int i=0; 
+                  int totalCount=CurrentPage.Children.Count();
+                  }
+
+				@foreach(var post in CurrentPage.Children.OrderBy("SortOrder desc")) 
+				{
+                    if (i%3==0){
+                        @Html.Raw("<div class='row'>");
+                    }
+
+					<div class="col-md-4">
+                        <div class="fb-like" data-href="@post.Url" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
+						<div class="content equal">
+							<a href="@post.Url" style="text-decoration: none;"
+                            target="popup" onclick="window.open(
+                               '@post.Url','popup','width=850,height=800,scrollbars=no,resizable=no'); return false;">
+								<div class="date">@post.CreateDate.ToLongDateString()</div>
+								<h2>@post.Name</h2>	
+								<p>@post.Author</p>
+								<p>@Umbraco.Truncate(post.Introduction, 150, true)</p>
+							</a>
+						</div>
+					</div>     
+                    if (i%3==2){
+                         @Html.Raw("</div>");
+                    }    
+                    
+                    i++;    
+				}
+
+                @if (totalCount % 3 < 2) {
+                    @Html.Raw("</div>");              
+                }
+		</div>
+	</section>
+</div>

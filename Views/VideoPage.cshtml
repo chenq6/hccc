@@ -1,0 +1,54 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+
+
+<div class="container-fluid">
+    <div class="=row">
+        <div class="col-md-6" style="padding: 50px">
+            <div><h1>張伯笠牧師讲道集</h1></div>
+            <div class="responsive-video">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/9J-wj1tl4uo?list=PLp7DKkGOW1xnt7JEpa0M8ykOG7w5Ipsph" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-6" style="padding: 50px">
+            <div><h1>修鹏飞牧师讲道集</h1></div>
+            <div class="responsive-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLoVQVcAaPilM-cEamngq5DCmmJwPheY5U" frameborder="0" allowfullscreen></iframe>            
+            </div>
+        </div>
+    </div>
+    <div class="=row">
+        <div class="col-md-6" style="padding: 50px">
+            <div><h1>刘敏讲道集</h1></div>
+            <div class="responsive-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLoVQVcAaPilOiGLo7mb8fP5HkiPZIT6Lp" frameborder="0" allowfullscreen></iframe>            
+            </div>
+        </div>
+        <div class="col-md-6" style="padding: 50px">
+            <div><h1>其他讲员讲道集</h1></div>
+            <div class="responsive-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLoVQVcAaPilNUDnm35JI6AND8Tf9iS0b5" frameborder="0" allowfullscreen></iframe>        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--
+<div id="divVideoPage">
+    @CurrentPage.GetGridHtml("videos", "VideoGrid")
+</div>
+
+<script src="/js/bootstrap.youtubepopup.js"></script>
+
+<script type="text/javascript">
+	$(function () {
+		$(".youtube").YouTubeModal({autoplay:0, width:640, height:480});
+	});
+</script>
+-->

@@ -1,0 +1,213 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+<!--@CurrentPage.GetGridHtml("homeGridContent", "Bootstrap3")-->
+
+
+<div id="divHomePage">
+    <div class="container-fixed">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/VJUuGBZFMXQ"></iframe>			
+                </div>
+            </div>
+            <div class="col-md-6">                
+                <table class="table table-bordered table-hover table-striped">
+                    <tr>
+					    <td style="width: 30%;"><strong>主任牧師</strong></td>
+					    <td style="width: 70%;"><strong>張伯笠</strong></td>
+				    </tr>
+				    <tr>
+					    <td><strong>駐堂牧師</strong></td>
+					    <td><strong>修鵬飛</strong></td>
+					</tr>
+					<tr>
+						<td><strong>傳道</strong></td>
+						<td><strong>劉敏傳道</strong></td>
+				    </tr>
+				    <tr>
+					    <td>
+					    <strong>主日崇拜</strong></td>
+					    <td>
+					    <strong>10:45am-12:30pm</strong></td>
+				    </tr>
+				    <tr>
+					    <td>
+					    <strong>成人主日学</strong></td>
+					    <td><strong>每周日上午 9:45am-10:35am</strong></td>
+				    </tr>
+				    <tr>
+					    <td><strong>儿童主日学</strong></td>
+					    <td><strong>10:45am-12:30pm</strong></td>
+				    </tr>
+				    <tr>
+					    <td><strong>主日午餐</strong></td>
+					    <td><strong>12:30pm</strong></td>
+				    </tr>
+				    <tr>
+					    <td><strong>祷告会<br>
+					    </strong></td>
+					    <td>
+					    <strong>周日1:00pm-2:00pm</strong></td>
+				    </tr>
+				    <tr>
+					    <td>
+					    <strong>地址：</strong></td>
+					    <td><strong> 4433  Brookfield  Corporate Drive, Unit H
+					    <br>
+					   Chantilly, VA 20151 </strong></td>
+				    </tr>
+                </table>
+            </div>
+        </div>
+
+
+@{   
+	var homePage = CurrentPage.AncestorsOrSelf(1).First();
+	var pageWenKu =homePage.Children.Where ("Name=@0", "信仰文库").FirstOrDefault();
+    var pageTongZhi = homePage.Children.Where ("Name=@0", "教会通知").FirstOrDefault();
+    var pageTongZhiChildren = pageTongZhi.Children.OrderBy("SortOrder desc").Take(4);
+    var pageShengMing = pageWenKu.Children.Where ("Name=@0", "生命见证").FirstOrDefault();
+    var pageShengMingChildren = pageShengMing.Children.OrderBy("SortOrder desc").Take(4);
+    var pageZiXun = pageWenKu.Children.Where ("Name=@0", "全球教会资讯").FirstOrDefault();
+    var pageZiXunChildren = pageZiXun.Children.OrderBy("SortOrder desc").Take(4);
+    var pageShenXue = pageWenKu.Children.Where ("Name=@0", "神学园地").FirstOrDefault();
+    var pageShenXueChildren = pageShenXue.Children.OrderBy("SortOrder desc").Take(4);
+ 
+}
+        <div class="row">
+            <div class="col-md-6"> 
+                <div id="divHomeCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#divHomeCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#divHomeCarousel" data-slide-to="1"></li>
+                            <li data-target="#divHomeCarousel" data-slide-to="2"></li>
+                            <li data-target="#divHomeCarousel" data-slide-to="3"></li>
+                            <li data-target="#divHomeCarousel" data-slide-to="4"></li>
+                            <li data-target="#divHomeCarousel" data-slide-to="5"></li>
+                            <li data-target="#divHomeCarousel" data-slide-to="6"></li>
+                            <li data-target="#divHomeCarousel" data-slide-to="7"></li>                            
+                            <li data-target="#divHomeCarousel" data-slide-to="8"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img src="Media/HCCCHomePics/IMG_7779.jpg" alt="HCCC">
+                            </div>
+
+                            <div class="item">
+                                <img src="Media/HCCCHomePics/IMG_8109.jpg" alt="HCCC">
+                            </div>
+
+                            <div class="item">
+                                <img src="Media/HCCCHomePics/DSC4268.jpg" alt="HCCC">
+                            </div>
+
+                            <div class="item">
+                                <img src="Media/HCCCHomePics/IMG_1629.jpg" alt="HCCC">
+                            </div>
+                            <div class="item">
+                                <img src="Media/HCCCHomePics/IMG_4782.jpg" alt="HCCC">
+                            </div>
+
+                            <div class="item">
+                                <img src="Media/HCCCHomePics/IMG_4680.jpg" alt="HCCC">
+                            </div>
+
+                            <div class="item">
+                                <img src="Media/HCCCHomePics/IMG_1958.jpg" alt="HCCC">
+                            </div>
+
+                            <div class="item">
+                                <img src="Media/HCCCHomePics/IMG_2100.jpg" alt="HCCC">
+                            </div>
+
+                            <div class="item">
+                                <img src="Media/HCCCHomePics/IMG_7962.jpg" alt="HCCC">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#divHomeCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#divHomeCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+            </div>
+            <div class="col-md-6"> 
+              <!--  <div style="text-align: center">
+                    <h1>最新文章</h1>
+                </div> -->
+
+                <table class="table table-bordered">
+                    <tr>
+					    <td style="width: 30%;"><strong>最新教会通知</strong></td>
+					    <td style="width: 70%;">@foreach (var post in pageTongZhiChildren) 
+                             {
+                                string author = string.IsNullOrEmpty(post.Author) ? "" : " - " + post.Author;
+                                
+                                <a href="@post.Url"
+                                    target="popup" onclick="window.open(
+                                   '@post.Url','popup','width=850,height=800,scrollbars=no,resizable=no'); return false;">
+								    <p>@post.Name &nbsp; @author  </p>		
+							    </a>          
+                             }
+                        </td>
+				    </tr>
+                    <tr>
+					    <td><strong>最新生命见证</strong></td>
+					    <td>@foreach (var post in pageShengMingChildren)
+                        {
+                            string author = string.IsNullOrEmpty(post.Author) ? "" : " - " + post.Author;
+
+                            <a href="@post.Url"
+                               target="popup" onclick="window.open(
+                               '@post.Url' ,'popup','width=850,height =800,scrollbars =no,resizable =no'); return false;">
+                                <p>@post.Name &nbsp; @author  </p>
+                            </a>
+                        }
+                        </td>
+				    </tr>
+                    <tr>
+					    <td><strong>最新神学园地</strong></td>
+					    <td>@foreach (var post in pageShenXueChildren)
+                        {
+                            string author = string.IsNullOrEmpty(post.Author) ? "" : " - " + post.Author;
+
+                            <a href="@post.Url"
+                               target="popup" onclick="window.open(
+                               '@post.Url' ,'popup','width=850,height =800,scrollbars =no,resizable =no'); return false;">
+                                <p>@post.Name &nbsp; @author  </p>
+                            </a>
+                        }
+                        </td>
+				    </tr>
+					<tr>
+					    <td><strong>最新全球教会资讯</strong></td>
+					    <td>@foreach (var post in pageZiXunChildren)
+                        {
+                            string author = string.IsNullOrEmpty(post.Author) ? "" : " - " + post.Author;
+
+                            <a href="@post.Url"
+                               target="popup" onclick="window.open(
+                               '@post.Url' ,'popup','width=850,height =800,scrollbars =no,resizable =no'); return false;">
+                                <p>@post.Name &nbsp; @author  </p>
+                            </a>
+                        }
+                        </td>
+				    </tr>
+                </table>
+            </div>              
+
+        </div>
+     </div>
+</div>
