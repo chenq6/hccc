@@ -1,0 +1,53 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+	var home = @CurrentPage.Site();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="@CurrentPage.siteDescription">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>@CurrentPage.Name</title>
+	
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!--<link rel="stylesheet" type="text/css" href="/css/fanoe.css">-->
+
+    <!-- Javascripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+    <header >
+        @{ Html.RenderPartial("MainNavigation"); }
+    </header>
+
+	<div style="margin-top: 100px;">
+        @RenderBody()
+    </div>
+
+    <footer> <!--style="background-color: #e7e7e7;"-->
+	  <hr />
+
+    <div style="text-align: center">
+		<div>丰收华夏基督教会</div>
+		<div>地址：4433 Brookfield Corporate Drive, Unit H, Chantilly, VA 20151.</div>
+		<div>主任牧师：张伯笠；驻堂牧师：修鹏飞；传道：刘敏.</div>
+		<div>Tel:(703)955-7788</div>
+    </div>
+
+    </footer>
+    
+  </body>
+</html>
